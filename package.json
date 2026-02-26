@@ -1,0 +1,19 @@
+{
+  "name": "xmtp",
+  "version": "0.1.0",
+  "description": "XMTP Channel Plugin for OpenClaw",
+  "main": "index.ts",
+  "type": "commonjs",
+  "openclaw": {
+    "extensions": ["./index.ts"],
+    "channel": {
+      "id": "xmtp",
+      "label": "XMTP",
+      "selectionLabel": "XMTP (Decentralized Messaging)",
+      "blurb": "End-to-end encrypted decentralized messaging via XMTP."
+    }
+  },
+  "dependencies": {
+    "@xmtp/agent-sdk": "^2.2.0"
+  }
+}

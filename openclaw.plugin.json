@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.openclaw.ai/schemas/plugin.json",
+  "id": "xmtp",
+  "name": "XMTP",
+  "description": "XMTP Channel Plugin for OpenClaw — end-to-end encrypted decentralized messaging",
+  "version": "0.1.0",
+  "channels": ["xmtp"],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "accounts": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "walletKey":       { "type": "string" },
+            "dbEncryptionKey": { "type": "string" },
+            "dbPath":          { "type": "string" },
+            "env":             { "type": "string", "enum": ["local", "dev", "production"] },
+            "enabled":         { "type": "boolean", "default": true }
+          },
+          "required": ["walletKey", "dbEncryptionKey"]
+        }
+      }
+    }
+  },
+  "uiHints": {
+    "accounts.*.walletKey":       { "label": "Wallet Private Key (0x…)",    "sensitive": true },
+    "accounts.*.dbEncryptionKey": { "label": "DB Encryption Key (0x…64hex)", "sensitive": true },
+    "accounts.*.dbPath":          { "label": "SQLite DB directory",          "placeholder": "./data/xmtp" },
+    "accounts.*.env":             { "label": "XMTP Network",                 "placeholder": "production" }
+  }
+}
